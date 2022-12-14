@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.masai.model.Customer;
+import com.masai.model.LoginDTO;
+import com.masai.services.CustomerLoginImpl;
 import com.masai.services.CustomerServiceIntr;
 
 import jakarta.validation.Valid;
@@ -29,7 +31,8 @@ public class CustomerController {
 	@Autowired
 	private CustomerServiceIntr customerServiceImpl;
 	
-		
+	@Autowired
+	private CustomerLoginImpl customerLogin;	
 
 		// to register user
 		@PostMapping(value = "/customer")
@@ -56,6 +59,20 @@ public class CustomerController {
 			Customer deleted_customer = customerServiceImpl.deleteCustomer(key);
 
 			return new ResponseEntity<Customer>(deleted_customer, HttpStatus.ACCEPTED);
+		}
+		
+		 // for user Login
+		@PostMapping(value = "customer/login")
+		public ResponseEntity<String> logInCustomer(@Valid @RequestBody LoginDTO customerDTO) {
+			String s = customerLogin.logIntoAccount(customerDTO);
+			return new ResponseEntity<>(s,HttpStatus.ACCEPTED);
+		}
+		
+		// for user Logout
+		@PostMapping(value = "customer/logout")
+		public ResponseEntity<String> logOutCustomer(@RequestParam(required = false) String key) {
+			String s = customerLogin.logOutFromAccount(key);
+			return new ResponseEntity<>(s,HttpStatus.ACCEPTED);
 		}
 	
 	
