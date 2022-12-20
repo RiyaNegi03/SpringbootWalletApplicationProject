@@ -35,6 +35,7 @@ public class CustomerServiceImpl implements CustomerServiceIntr {
 		}
 
 		Wallet wallet = new Wallet();
+		
 		wallet.setBalance(0);
 		wallet.setCustomer(customer);
 
