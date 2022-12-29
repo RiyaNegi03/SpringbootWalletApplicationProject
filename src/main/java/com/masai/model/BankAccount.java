@@ -1,5 +1,8 @@
 package com.masai.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 //import javax.persistence.Entity;
 //import javax.persistence.Id;
 //import javax.validation.constraints.NotEmpty;
@@ -10,8 +13,7 @@ package com.masai.model;
 
 //import org.hibernate.validator.constraints.Range;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
