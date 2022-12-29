@@ -2,7 +2,7 @@ package com.masai.controllers;
 
 import java.util.List;
 
-
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +21,7 @@ import com.masai.model.LoginDTO;
 import com.masai.services.CustomerLoginImpl;
 import com.masai.services.CustomerServiceIntr;
 
-import jakarta.validation.Valid;
+
 
 
 
